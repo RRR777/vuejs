@@ -2,6 +2,7 @@ import PageHome from "@/components/PageHome";
 // import * as VueRouter from 'vue-router'
 import { createRouter, createWebHistory } from 'vue-router'
 import PageThreadShow from "@/components/PageThreadShow";
+import PageNotFound from "@/components/PageNotFound";
 
 const routes = [
     {
@@ -15,6 +16,12 @@ const routes = [
         component: PageThreadShow,
         props: true
     },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'NotFound',
+        // eslint-disable-next-line no-undef
+        component: PageNotFound
+    }
 ]
 
 // use Vue.Router when importing full plugin
