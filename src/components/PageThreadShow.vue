@@ -52,7 +52,7 @@ export default {
   },
   computed: {
     thread () {
-      return this.threads.find(thread => thread.id === this.id) // alse available by this.$route.params.id
+      return this.threads.find(thread => thread.id === this.id) // also available by this.$route.params.id
     }
   },
   methods: {
