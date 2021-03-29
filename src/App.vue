@@ -1,5 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+<!--  <img alt="Vue logo" src="./assets/logo.png">-->
 <!--  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
   <div class="container">
 <!--    <page-home/>-->
@@ -9,13 +9,13 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-// import PageHome from '@/components/PageHome.vue'
+// import Home from '@/components/Home.vue'
 
 export default {
   name: 'App',
   // components: {
   //   // HelloWorld,
-  //   PageHome
+  //   Home
   // }
 }
 </script>
