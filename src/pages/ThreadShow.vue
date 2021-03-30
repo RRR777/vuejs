@@ -4,6 +4,17 @@
 
     <post-list :posts="threadPosts"/>
 
+    <div class="col-full">
+      <form @submit.prevent="addPost">
+        <div class="form-group">
+          <textarea v-model="newPostText" name="" id="" cols="30" rows="10" class="form-input"/>
+        </div>
+        <div class="form-actions">
+          <button class="btn-blue">Submit post</button>
+        </div>
+      </form>
+    </div>
+
   </div>
 </template>
 
@@ -25,7 +36,8 @@ export default {
   data() {
     return {
       threads: sourceData.threads,
-      posts: sourceData.posts
+      posts: sourceData.posts,
+      newPostText: ''
     }
   },
   computed: {
@@ -40,6 +52,20 @@ export default {
     postById (postId) {
       return this.posts.find(p => p.id === postId)
     },
+    addPost () {
+      const postId = 'qqqq' + Math.random()
+      const post = {
+        id: postId,
+        text: this.newPostText,
+        createdAt: Math.floor(Date.now() / 1000),
+        threadId: this.id,
+        userId: "NnooaWj4KHVxbhKwO1pEdfaQDsD2"
+      }
+      this.posts.push(post)
+      this.thread.posts.push(postId)
+
+      this.newPostText = ''
+    }
   }
 }
 </script>
