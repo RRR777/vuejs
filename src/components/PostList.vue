@@ -20,8 +20,8 @@
         </div>
       </div>
 
-      <div class="post-date text-faded">
-        {{post.publishedAt}}
+      <div class="post-date text-faded" :title="humanFriendlyData(post.publishedAt)">
+        {{ diffForHumans(post.publishedAt) }}
       </div>
     </div>
   </div>
@@ -29,6 +29,12 @@
 
 <script>
 import sourceData from '@/data.json'
+import dayjs from 'dayjs'
+import relativeTime from 'dayjs/plugin/relativeTime'
+import localazedData from 'dayjs/plugin/localizedFormat'
+dayjs.extend(relativeTime)
+dayjs.extend(localazedData)
+
 export default {
   name: "PostList",
   props: {
@@ -46,6 +52,12 @@ export default {
     userById (userId) {
       return this.users.find(p => p.id === userId)
     },
+    diffForHumans (timestamp) {
+      return dayjs.unix(timestamp).fromNow()
+    },
+    humanFriendlyData (timestamp) {
+      return dayjs.unix(timestamp).format('llll')
+    }
   }
 }
 </script>
