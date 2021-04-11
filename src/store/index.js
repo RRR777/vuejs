@@ -2,13 +2,19 @@ import { createStore } from "vuex";
 import sourceData from '@/data.json';
 
 export default createStore( {
-    state: sourceData,
+    state: {
+        ...sourceData,
+        authId: 'VXjpr2WHa8Ux4Bnggym8QFLdv5C3'
+    },
     actions: {
         createPost (context, post) {
             post.id = 'ggqq' + Math.random()
             context.commit('setPost', { post }) // set the post
             context.commit('appendPostToThread', { postId: post.id, threadId: post.threadId }) // append post to thread
         }
+    },
+    getters: {
+        authUser: state => state.users.find(user => user.id === state.authId)
     },
     mutations: {
         setPost (state, { post }) {
