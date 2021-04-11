@@ -41,7 +41,6 @@
 
 <script>
 
-
 export default {
   name: "ThreadList",
   props: {
@@ -70,5 +69,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

@@ -1,4 +1,5 @@
 <template>
+  <the-navbar></the-navbar>
 <!--  <img alt="Vue logo" src="./assets/logo.png">-->
 <!--  <HelloWorld msg="Welcome to Your Vue.js App"/>-->
   <div class="container">
@@ -11,8 +12,10 @@
 // import HelloWorld from './components/HelloWorld.vue'
 // import Home from '@/components/Home.vue'
 
+import TheNavbar from "./components/TheNavbar";
 export default {
   name: 'App',
+  components: {TheNavbar},
   // components: {
   //   // HelloWorld,
   //   Home
