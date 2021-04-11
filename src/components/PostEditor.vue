@@ -23,16 +23,10 @@ export default {
   },
   methods: {
     save () {
-      // const postId = 'qqqq' + Math.random()
       const post = {
-        // id: postId,
-        text: this.text,
-        createdAt: Math.floor(Date.now() / 1000),
-        userId: "NnooaWj4KHVxbhKwO1pEdfaQDsD2"
+        text: this.text
       }
       this.$emit('save', { post }) // access under eventData.post
-      // this.posts.push(post)
-      // this.thread.posts.push(postId)
 
       this.text = ''
     }
