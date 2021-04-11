@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import sourceData from '@/data.json'
+
 
 export default {
   name: "PostList",
@@ -38,9 +38,9 @@ export default {
       type: Array
     }
   },
-  data() {
-    return {
-      users: sourceData.users,
+  computed: {
+    users () {
+      return this.$store.state.users
     }
   },
   methods: {

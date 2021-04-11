@@ -3,9 +3,11 @@ import App from './App.vue'
 import router from '@/router'
 // register one global vomponent
 // import AppDate from "@/components/AppDate";
+import store from '@/store'
 
 const forumApp = createApp(App)
 forumApp.use(router)
+forumApp.use(store)
 
 // to register one component globally
 // forumApp.component('AppDate', AppDate)
