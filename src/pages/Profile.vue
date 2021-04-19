@@ -2,8 +2,8 @@
   <div class="container">
     <div class="flex-grid">
       <div class="col-3 push-top">
-        <UserProfiledCard :user="user"/>
-        <UserProfileCardEditor :user="user"/>
+        <UserProfiledCard v-if="!edit" :user="user"/>
+        <UserProfileCardEditor v-else :user="user"/>
       </div>
 
       <div class="col-7 push-top">
@@ -19,9 +19,9 @@
 </template>
 <script>
 import PostList from '@/components/PostList'
-import { mapGetters } from 'vuex'
 import UserProfiledCard from "../components/UserProfiledCard";
 import UserProfileCardEditor from "../components/UserProfileCardEditor";
+import { mapGetters } from 'vuex'
 
 export default {
   name: "Profile",
@@ -31,22 +31,6 @@ export default {
   },
   computed: {
     ...mapGetters({ user: 'authUser' }),
-  //   userPostsCount () {
-  //     return this.userPosts.length
-  //   },
-  //   userPosts () {
-  //     return Object.values(this.$store.state.posts).filter(
-  //         post => post.userId === this.user.id
-  //     )
-  //   },
-  //   userThreadsCount () {
-  //     return this.userThreads.length
-  //   },
-  //   userThreads () {
-  //     return Object.values(this.$store.state.threads).filter(
-  //         post => post.userId === this.user.id
-  //     )
-  //   }
   }
 }
 </script>

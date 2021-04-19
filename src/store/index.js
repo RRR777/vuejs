@@ -11,10 +11,10 @@ export default createStore( {
             post.id = 'ggqq' + Math.random()
             post.userId = state.authId
             post.publishedAt = Math.floor(Date.now() / 1000)
-            commit('setPost', { post }) // set the post
-            commit('appendPostToThread', { postId: post.id, threadId: post.threadId }) // append post to thread
+            commit('setPost', { post })
+            commit('appendPostToThread', { postId: post.id, threadId: post.threadId })
         },
-        createThread ({ commit, state, dispatch }, { text, title, forumId }) {
+        async createThread ({ commit, state, dispatch }, { text, title, forumId }) {
             const id = 'ggqq' + Math.random()
             const userId = state.authId
             const publishedAt = Math.floor(Date.now() / 1000)
@@ -23,6 +23,7 @@ export default createStore( {
             commit('appendThreadToUser', { userId, threadId: id })
             commit('appendThreadToForum', { forumId, threadId: id })
             dispatch('createPost', { text, threadId: id })
+            return state.threads.find(thread => thread.id === id)
         },
         updateUser ({commit}, user) {
             commit('setUser', { user, userId: user.id })

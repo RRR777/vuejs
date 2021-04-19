@@ -46,7 +46,7 @@ export default {
   props: {
     threads: {
       type: Array,
-          required: true
+      required: true
     }
   },
   computed: {
